@@ -1,0 +1,74 @@
+{
+    "typeName": "VG::Logs::QueryDefinition",
+    "description": "Creates or updates a query definition for CloudWatch Logs Insights.",
+    "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-logs.git",
+    "properties": {
+        "LogGroupNames": {
+            "description": "Use this parameter to include specific log groups as part of your query definition.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "pattern": "^[\\.\\-_/#A-Za-z0-9]+"
+        },
+        "Name": {
+            "description": "A name for the query definition.",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "pattern": "^([^:*\\/]+\\/?)*[^:*\\/]+$"
+        },
+        "QueryDefinitionId": {
+            "description": "If you are updating a query definition, use this parameter to specify the ID of the query definition that you want to update.",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+        },
+        "QueryString": {
+            "description": "A collection of information that defines how metric data gets emitted.",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10000
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "Name",
+        "QueryString"
+    ],
+    "createOnlyProperties": [
+        "/properties/QueryDefinitionId"
+    ],
+    "primaryIdentifier": [
+        "/properties/QueryDefinitionId"
+    ],
+    "handlers": {
+        "create": {
+            "permissions": [
+                "logs:PutQueryDefinition",
+                "logs:DescribeQueryDefinitions"
+            ]
+        },
+        "read": {
+            "permissions": [
+                "logs:DescribeQueryDefinitions"
+            ]
+        },
+        "update": {
+            "permissions": [
+                "logs:PutQueryDefinition",
+                "logs:DescribeQueryDefinitions"
+            ]
+        },
+        "delete": {
+            "permissions": [
+                "logs:DeleteQueryDefinition"
+            ]
+        },
+        "list": {
+            "permissions": [
+                "logs:DescribeQueryDefinitions"
+            ]
+        }
+    }
+}

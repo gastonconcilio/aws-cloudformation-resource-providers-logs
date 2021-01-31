@@ -1,0 +1,25 @@
+{
+    "artifact_type": "RESOURCE",
+    "typeName": "VG::Logs::QueryDefinition",
+    "language": "java",
+    "runtime": "java8",
+    "entrypoint": "com.vg.logs.querydefinition.HandlerWrapper::handleRequest",
+    "testEntrypoint": "com.vg.logs.querydefinition.HandlerWrapper::testEntrypoint",
+    "settings": {
+        "version": false,
+        "subparser_name": null,
+        "verbose": 0,
+        "force": false,
+        "type_name": null,
+        "artifact_type": null,
+        "namespace": [
+            "com",
+            "vg",
+            "logs",
+            "querydefinition"
+        ],
+        "codegen_template_path": "default",
+        "protocolVersion": "2.0.0"
+    },
+    "executableEntrypoint": "com.vg.logs.querydefinition.HandlerWrapperExecutable"
+}
